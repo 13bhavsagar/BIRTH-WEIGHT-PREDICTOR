@@ -29,7 +29,7 @@ def get_prediction():
     baby_data=request.form
     data=cleaned_data(baby_data)
     df=pd.DataFrame(data)
-    with open('model/model.pkl', 'rb') as obj:
+    with open('model.pkl', 'rb') as obj:
         model = pk.load(obj)
 
     prediction=model.predict(df) 
