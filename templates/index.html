@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birth Weight Prediction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #dde6f7, #fef9f9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 340px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: none;
+      transition: 0.2s ease;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      font-size: 13px;
+      color: #777;
+      background-color: white;
+      padding: 0 4px;
+      transition: 0.2s ease;
+      pointer-events: none;
+    }
+
+    .input-group input:focus {
+      border-color: #6a9dfb;
+      outline: none;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: -8px;
+      left: 8px;
+      font-size: 11px;
+      color: #6a9dfb;
+    }
+
+    button {
+      width: 100%;
+      background: #6a9dfb;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #527ddc;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Predict Birth Weight</h1>
+    <form action="/predict" method="POST">
+      <div class="input-group">
+        <input name="gestation" type="number" required placeholder=" " />
+        <label>Gestation</label>
+      </div>
+
+      <div class="input-group">
+        <input name="parity" type="number" required placeholder=" " />
+        <label>Parity</label>
+      </div>
+
+      <div class="input-group">
+        <input name="age" type="number" required placeholder=" " />
+        <label>Age</label>
+      </div>
+
+      <div class="input-group">
+        <input name="height" type="number" required placeholder=" " />
+        <label>Height</label>
+      </div>
+
+      <div class="input-group">
+        <input name="weight" type="number" required placeholder=" " />
+        <label>Weight</label>
+      </div>
+
+      <div class="input-group">
+        <input name="smoke" type="number" required placeholder=" " />
+        <label>Smoke</label>
+      </div>
+
+      <button type="submit">Predict</button>
+    </form>
+    <h5>Predicted birth weight :{{prediction}}</h5>
+  </div>
+</body>
+</html>
